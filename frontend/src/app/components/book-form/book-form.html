@@ -1,0 +1,43 @@
+<h3>{{ selectedBook ? 'Edit Book' : 'Add New Book' }}</h3>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label>Title:</label><br />
+    <input type="text" name="title" [(ngModel)]="book.title" />
+    <p class="error" *ngIf="submitted && book.title.trim() === ''">
+      Title is required.
+    </p>
+  </div>
+
+  <div>
+    <label>Author:</label><br />
+    <input type="text" name="author" [(ngModel)]="book.author" />
+    <p class="error" *ngIf="submitted && book.author.trim() === ''">
+      Author is required.
+    </p>
+  </div>
+
+  <div>
+    <label>Category:</label><br />
+    <input type="text" name="category" [(ngModel)]="book.category" />
+    <p class="error" *ngIf="submitted && book.category.trim() === ''">
+      Category is required.
+    </p>
+  </div>
+
+  <div>
+    <label>Description:</label><br />
+    <textarea name="description" [(ngModel)]="book.description"></textarea>
+    <p class="error" *ngIf="submitted && book.description.trim() === ''">
+      Description is required.
+    </p>
+  </div>
+
+  <button type="submit">
+    {{ selectedBook ? 'Update Book' : 'Add Book' }}
+  </button>
+
+  <button type="button" *ngIf="selectedBook" (click)="resetForm()">
+    Cancel
+  </button>
+</form>

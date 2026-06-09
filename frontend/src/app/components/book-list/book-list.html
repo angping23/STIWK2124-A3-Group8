@@ -1,0 +1,82 @@
+<div class="page-container">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Accessible Reading System</p>
+      <h2>Reading List Management</h2>
+      <p class="subtitle">Manage books with search, pagination, create, edit and delete functions.</p>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <section class="form-card">
+      <app-book-form
+        [selectedBook]="selectedBook"
+        (saveBook)="saveBook($event)"
+        (cancelEdit)="cancelEdit()">
+      </app-book-form>
+    </section>
+
+    <section class="summary-card">
+      <p>Total Books</p>
+      <h3>{{ books.length }}</h3>
+      <span>Current page records</span>
+    </section>
+  </div>
+
+  <section class="table-card">
+    <div class="table-header">
+      <div>
+        <h3>Book Records</h3>
+        <p>Search and manage reading list records.</p>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="text"
+          [(ngModel)]="keyword"
+          placeholder="Search by title, author, or category"
+        />
+        <button (click)="searchBooks()">Search</button>
+      </div>
+    </div>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th class="action-col">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (book of books; track book.id) {
+            <tr>
+              <td class="book-title">{{ book.title }}</td>
+              <td>{{ book.author }}</td>
+              <td>
+                <span class="category-badge">{{ book.category }}</span>
+              </td>
+              <td>{{ book.description }}</td>
+              <td class="action-buttons">
+                <button class="edit-btn" (click)="editBook(book)">Edit</button>
+                <button class="delete-btn" (click)="deleteBook(book.id)">Delete</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="page === 0">Previous</button>
+      <span>Page {{ page + 1 }} of {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="page >= totalPages - 1">Next</button>
+    </div>
+  </section>
+</div>
