@@ -307,15 +307,19 @@ The workflow runs automatically whenever code is pushed to GitHub.
 
 ## Book Records Interface
 
-(Add Screenshot)
+<img width="1852" height="880" alt="image" src="https://github.com/user-attachments/assets/a10e2cbd-cd56-4555-90b0-61cfab984925" />
+<img width="1865" height="716" alt="image" src="https://github.com/user-attachments/assets/e01acc27-34ad-4858-ac7a-58cf753422bd" />
+
 
 ## Docker Deployment
 
-(Add docker ps Screenshot)
+<img width="927" height="113" alt="image" src="https://github.com/user-attachments/assets/b0c36d27-7868-4442-917b-3cb58cc2f3c4" />
+
 
 ## GitHub Actions CI Pipeline
 
-(Add GitHub Actions Screenshot)
+<img width="865" height="284" alt="image" src="https://github.com/user-attachments/assets/e8eeba4b-547e-4469-b272-a0111b62aef7" />
+
 
 ---
 
