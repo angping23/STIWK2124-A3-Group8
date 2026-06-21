@@ -117,4 +117,15 @@ cancelEdit(): void {
       });
     }
   }
+    readAloud(book: Book): void {
+    const text = `${book.title}. Author: ${book.author}. Category: ${book.category}. ${book.description}`;
+
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = 'en-US';
+    speech.rate = 1;
+    speech.pitch = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  }
 }

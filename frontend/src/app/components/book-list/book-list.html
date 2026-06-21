@@ -64,9 +64,10 @@
               </td>
               <td>{{ book.description }}</td>
               <td class="action-buttons">
-                <button class="edit-btn" (click)="editBook(book)">Edit</button>
-                <button class="delete-btn" (click)="deleteBook(book.id)">Delete</button>
-              </td>
+              <button class="edit-btn" (click)="editBook(book)">Edit</button>
+             <button class="delete-btn" (click)="deleteBook(book.id)">Delete</button>
+             <button class="read-btn" (click)="readAloud(book)">Read Aloud</button>
+             </td>
             </tr>
           }
         </tbody>
