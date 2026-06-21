@@ -79,6 +79,10 @@ The project was developed using Angular, Spring Boot, and MySQL.
 - 401 Unauthorized
 - 404 Not Found
 
+### Accessibility Feature
+- Read Aloud function using Web Speech API
+- Users can listen to book title, author, category, and description
+
 ---
 
 # System Architecture
@@ -305,10 +309,10 @@ The workflow runs automatically whenever code is pushed to GitHub.
 
 # Project Screenshots
 
-## Book Records Interface
+## Book Records Interface with Read Aloud Feature
 
 <img width="1852" height="880" alt="image" src="https://github.com/user-attachments/assets/a10e2cbd-cd56-4555-90b0-61cfab984925" />
-<img width="1865" height="716" alt="image" src="https://github.com/user-attachments/assets/e01acc27-34ad-4858-ac7a-58cf753422bd" />
+<img width="1245" height="532" alt="image" src="https://github.com/user-attachments/assets/0577cca7-fe9f-473f-895d-eb9f680cca80" />
 
 
 ## Docker Deployment
@@ -341,4 +345,4 @@ Dr. Bamatraf Munya Saleh Saeed
 
 # Conclusion
 
-The Accessible Reading List (ARL) System successfully demonstrates full-stack web application development through the integration of Angular, Spring Boot, and MySQL. The project incorporates security, testing, Docker containerization, and GitHub Actions Continuous Integration (CI) to improve software quality, deployment readiness, and maintainability.
+The Accessible Reading List (ARL) System successfully demonstrates full-stack web application development through the integration of Angular, Spring Boot, and MySQL. The project incorporates security, testing, Docker containerization, GitHub Actions Continuous Integration (CI), and a Read Aloud accessibility feature to improve software quality, usability, deployment readiness, and maintainability.
