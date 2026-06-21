@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-The Accessible Reading List (ARL) System is a web-based application developed for STIWK2124 Web Engineering. The system allows users to manage book records through a simple and user-friendly interface.
+The Accessible Reading List (ARL) System is a full-stack web application developed for STIWK2124 Web Engineering. The system allows users to manage book records through a simple and user-friendly interface.
+
+The application integrates Angular frontend development, Spring Boot backend services, and MySQL database management. It supports CRUD operations, search functionality, pagination, validation, authentication, testing, Docker containerization, Continuous Integration (CI), and accessibility features.
 
 Users can:
 
@@ -12,12 +14,11 @@ Users can:
 - Delete books
 - Search books
 - Navigate records using pagination
-
-The project was developed using Angular, Spring Boot, and MySQL.
+- Listen to book information using the Read Aloud feature
 
 ---
 
-## Team Members
+# Team Members
 
 | Name | Matric Number |
 |--------|--------|
@@ -27,28 +28,33 @@ The project was developed using Angular, Spring Boot, and MySQL.
 
 ---
 
-## Technologies Used
+# Technologies Used
 
-### Frontend
+## Frontend
+
 - Angular
 - TypeScript
 - HTML
 - CSS
 
-### Backend
+## Backend
+
 - Spring Boot
 - Java 17
 - Maven
 
-### Database
+## Database
+
 - MySQL 8
 
-### DevOps
+## DevOps
+
 - Docker
 - Docker Compose
 - GitHub Actions (CI)
 
-### Testing
+## Testing
+
 - JUnit
 - Angular Unit Testing (Karma & Jasmine)
 
@@ -56,30 +62,36 @@ The project was developed using Angular, Spring Boot, and MySQL.
 
 # System Features
 
-### Book Management
+## Book Management
+
 - Create Book Records
 - View Book Records
 - Update Book Records
 - Delete Book Records
 
-### Search Functionality
+## Search Functionality
+
 - Search books by title, author, or category
 
-### Pagination
+## Pagination
+
 - Display records in pages
 
-### Security
+## Security
+
 - Spring Security Basic Authentication
 - Protected POST, PUT, DELETE endpoints
 - Client-side Validation
 - Server-side Validation
 
-### Error Handling
+## Error Handling
+
 - 400 Bad Request
 - 401 Unauthorized
 - 404 Not Found
 
-### Accessibility Feature
+## Accessibility Feature
+
 - Read Aloud function using Web Speech API
 - Users can listen to book title, author, category, and description
 
@@ -106,7 +118,7 @@ Before running the project, install:
 - Docker Desktop
 - Git
 
-Docker Desktop Download:
+Docker Desktop:
 
 https://www.docker.com/products/docker-desktop/
 
@@ -114,7 +126,7 @@ https://www.docker.com/products/docker-desktop/
 
 # Installation Guide
 
-## 1. Clone Repository
+## Step 1: Clone Repository
 
 ```bash
 git clone https://github.com/angping23/STIWK2124-A3-Group8.git
@@ -123,31 +135,38 @@ cd STIWK2124-A3-Group8
 
 ---
 
-## 2. Start Docker Desktop
+## Step 2: Start Docker Desktop
 
-Make sure Docker Desktop is running before executing Docker commands.
+Open Docker Desktop and ensure Docker Engine is running.
+
+Verify Docker installation:
+
+```bash
+docker ps
+```
 
 ---
 
-## 3. Build and Run the System
+## Step 3: Build and Run the Application
 
-Run:
+Execute:
 
 ```bash
 docker compose up --build
 ```
 
-The command will automatically:
+This command will automatically:
 
 - Build Angular Frontend
 - Build Spring Boot Backend
 - Start MySQL Database
-- Create required database tables
-- Insert sample book records
+- Create database schema
+- Insert sample records
+- Connect all services
 
 ---
 
-## 4. Verify Containers
+## Step 4: Verify Containers
 
 Run:
 
@@ -155,7 +174,7 @@ Run:
 docker ps
 ```
 
-Expected output:
+Expected containers:
 
 ```text
 arl-frontend
@@ -163,7 +182,7 @@ arl-backend
 arl-mysql
 ```
 
-All containers should show:
+All containers should display:
 
 ```text
 Up
@@ -173,11 +192,9 @@ Up
 
 # Access the Application
 
-After all containers have started successfully:
-
 ## Frontend
 
-Open in browser:
+Open:
 
 ```text
 http://localhost:4200
@@ -186,10 +203,10 @@ http://localhost:4200
 You should see:
 
 ```text
-Book Records
+Reading List Management
 ```
 
-with sample books displayed.
+and the Book Records table.
 
 ---
 
@@ -201,13 +218,13 @@ Open:
 http://localhost:8081/api/books
 ```
 
-Expected result:
+Expected response:
 
 ```json
 {
-  "content": [
-    ...
-  ]
+  "content": [...],
+  "totalPages": 1,
+  "totalElements": 5
 }
 ```
 
@@ -215,16 +232,12 @@ Expected result:
 
 ## Database
 
-MySQL is available on:
+MySQL Configuration:
 
 ```text
-localhost:3307
-```
-
-Database Name:
-
-```text
-arl_db
+Host: localhost
+Port: 3307
+Database: arl_db
 ```
 
 ---
@@ -233,25 +246,38 @@ arl_db
 
 Protected write operations require Basic Authentication.
 
-Username:
+Credentials:
 
 ```text
-group8
+Username: group8
+Password: 1234
 ```
 
-Password:
+Authentication is required for:
 
-```text
-1234
-```
+- POST Requests
+- PUT Requests
+- DELETE Requests
 
-Used for:
+---
 
-- POST
-- PUT
-- DELETE
+# Accessibility Feature
 
-requests.
+## Read Aloud Feature
+
+The ARL system includes a Read Aloud feature implemented using the Web Speech API.
+
+Users can:
+
+1. Open the Book Records page.
+2. Click the **Read Aloud** button.
+3. Listen to the selected book's:
+   - Title
+   - Author
+   - Category
+   - Description
+
+This feature improves accessibility and usability for users with reading difficulties or visual impairments.
 
 ---
 
@@ -262,7 +288,8 @@ requests.
 JUnit tests were implemented to verify:
 
 - Book retrieval
-- Validation
+- Book creation
+- Validation rules
 - Authentication
 - Error handling
 
@@ -270,10 +297,12 @@ JUnit tests were implemented to verify:
 
 ## Frontend Testing
 
-Angular unit testing was implemented using:
+Angular unit tests were implemented using:
 
 - Karma
 - Jasmine
+
+The tests verify component functionality and frontend behavior.
 
 ---
 
@@ -281,7 +310,7 @@ Angular unit testing was implemented using:
 
 The project was containerized using Docker and Docker Compose.
 
-Containers:
+## Containers
 
 | Container | Purpose |
 |------------|------------|
@@ -289,7 +318,7 @@ Containers:
 | arl-backend | Spring Boot Backend |
 | arl-mysql | MySQL Database |
 
-Docker Compose manages service orchestration and communication between containers.
+Docker Compose manages service orchestration and communication between all containers.
 
 ---
 
@@ -301,7 +330,8 @@ The CI pipeline automatically:
 
 - Builds Spring Boot Backend
 - Builds Angular Frontend
-- Verifies project build consistency
+- Verifies build consistency
+- Detects integration issues
 
 The workflow runs automatically whenever code is pushed to GitHub.
 
@@ -309,40 +339,61 @@ The workflow runs automatically whenever code is pushed to GitHub.
 
 # Project Screenshots
 
-## Book Records Interface with Read Aloud Feature
+## Book Records Interface
 
-<img width="1852" height="880" alt="image" src="https://github.com/user-attachments/assets/a10e2cbd-cd56-4555-90b0-61cfab984925" />
+<img width="1867" height="861" alt="image" src="https://github.com/user-attachments/assets/102a4d12-d6e4-4505-8ab7-534450f91852" />
+<img width="1866" height="565" alt="image" src="https://github.com/user-attachments/assets/0d91f4d3-ab60-4306-bf4a-ef6a69496aa9" />
+
+---
+
+## Read Aloud Feature
+
 <img width="1245" height="532" alt="image" src="https://github.com/user-attachments/assets/0577cca7-fe9f-473f-895d-eb9f680cca80" />
 
+---
 
 ## Docker Deployment
 
 <img width="927" height="113" alt="image" src="https://github.com/user-attachments/assets/b0c36d27-7868-4442-917b-3cb58cc2f3c4" />
 
+---
 
 ## GitHub Actions CI Pipeline
 
 <img width="865" height="284" alt="image" src="https://github.com/user-attachments/assets/e8eeba4b-547e-4469-b272-a0111b62aef7" />
 
+---
+
+# Stop the Application
+
+To stop all running containers:
+
+```bash
+docker compose down
+```
 
 ---
 
 # Course Information
 
 Course:
+
 STIWK2124 Web Engineering
 
 Semester:
+
 Second Semester 2025/2026 (A252)
 
 University:
+
 Universiti Utara Malaysia
 
 Lecturer:
+
 Dr. Bamatraf Munya Saleh Saeed
 
 ---
 
 # Conclusion
 
-The Accessible Reading List (ARL) System successfully demonstrates full-stack web application development through the integration of Angular, Spring Boot, and MySQL. The project incorporates security, testing, Docker containerization, GitHub Actions Continuous Integration (CI), and a Read Aloud accessibility feature to improve software quality, usability, deployment readiness, and maintainability.
+The Accessible Reading List (ARL) System successfully demonstrates the development of a full-stack web application using Angular, Spring Boot, and MySQL. The system supports CRUD operations, search functionality, pagination, authentication, validation, testing, and error handling. In addition, Docker containerization and GitHub Actions Continuous Integration (CI) were implemented to improve deployment readiness and software quality. The Read Aloud accessibility feature further enhances usability by allowing users to listen to book information through the Web Speech API. Overall, the project fulfills the requirements of STIWK2124 Web Engineering Assignment 3 while demonstrating modern web development and DevOps practices.
